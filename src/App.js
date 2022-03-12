@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import ColorProvider from "./components/color-hooks";
+import ColorOrganizer from "./components/ColorOrganizer";
+import Menu from "./components/Menu";
+import StarRating from "./components/StarRating";
+import data from "./data/recipies.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+export default function App() {
+    return <ColorProvider>
+        <h1>Menu</h1>
+        <Menu recipies={data} title="Delicious Recipies" />
+        <h1>Star Rating</h1>
+        <StarRating />
+        <h1>Color Data</h1>
+        <ColorOrganizer />
+    </ColorProvider>
+};
